@@ -23,13 +23,17 @@ body{
     background-color: var(--c-background);
 }
 .cu_glav{
-    color: var(--c-text);
+    color: black;
     font-size: 40px;
     margin: -5px 0 0 10px;
     float:left;
     text-decoration: none;
     font-weight: 900;
     padding: 0;
+}
+.cu_glav:hover{
+    color: blanchedalmond;
+    transition: all .5s;
 }
 .info{
     margin-right: 30px;
@@ -49,9 +53,9 @@ body{
     margin-top: -5px;
     float: right;
 }
-.inst:hover{
+.inst:hover, .info:hover{
     color: rgb(160, 9, 155);
-    transition: all .9s
+    transition: all .5s;
 }
 .osn{
     color: var(--c-text);
