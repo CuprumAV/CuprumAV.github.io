@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuprum</title>
+</head>
+<body>
+    <header class="panel">
+        <span class="rig"><a href="https://www.instagram.com/cuprumav" class="inst">Instagram</a>
+        <a href="info2.html" class="info">Info</a></span>
+    </header>
+    <div class="osn">
+        <h1>Cuprum</h1>
+        <p class="pr">project</p>
+    </div>  
+    <div class="wiki">
+        <p class="copper">Copper is a chemical element with the symbol Cu (from Latin: cuprum) and atomic number 29. It is a soft, malleable, and ductile metal with very high thermal and electrical conductivity. A freshly exposed surface of pure copper has a pinkish-orange color.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/NatCopper.jpg/220px-NatCopper.jpg" alt="">
+    </div>
+    <style>
+*{
+    margin:0;
+    padding:0;
+    max-width: 100%;
+}
+:root{
+    --c-background: white;
+    --c-text: black;
+    --c-panel: red;
+}
+.panel{
+    background-color: var(--c-panel);
+    min-height: 30px;
+    max-height: 200px;
+    margin: 0;
+    max-width: 100%;
+    display: block;
+    padding: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+body{
+    background-color: var(--c-background);
+}
+.inst{
+    margin-right:20px;
+    text-decoration: none;
+    color: rgb(255, 247, 213);
+    font-size: 30px;
+    padding: 5px;
+}
+.info{
+    margin-right: 30px;
+    text-decoration: none;
+    color: rgb(255, 247, 213);
+    font-size: 30px;
+    padding: 5px;
+}
+.rig{
+    float: right;
+}
+.info:hover{
+    color: rgb(160, 9, 155);
+    transition: all .9s;
+}
+.inst:hover{
+    color: rgb(160, 9, 155);
+    transition: all .9s
+}
+.osn{
+    color: var(--c-text);
+    text-align: center;
+}
+.pn{
+    float: right;
+}
+h1{
+    font-size: 100px;
+    margin-bottom: 0px;
+    margin-top: 70px;
+    font-weight: 900;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.pr{
+    font-size: 40px;
+    margin-top: 0px;
+    margin-left: 240px;
+}
+.wiki{
+    margin-top: 100px;
+    margin-left: 100px;
+    display: flex;
+}
+.copper{
+    color: var(--c-text);
+    width: 500px;
+    margin: 0px;
+    /*display: flex;
+    flex-direction: column;*/
+}
+img{
+    display: block;
+    margin-right: 10%;
+    margin-left: 20%;
+}
+/*Під телефони*/
+@media(max-width: 420px){
+    .copper{
+        width: 200px;
+    }
+    .wiki{
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+    img{
+        height: 100px;
+        width: 100px;
+        margin-right: 20px;
+    }
+    .osn{
+        transform: scale(0.7);
+        margin-top: -50px;
+    }
+}
+/*Тема*/
+@media (prefers-color-scheme: dark){
+    :root{
+        --c-background:black;
+        --c-text: white;
+        --c-panel: orange;
+    }
+}
+    </style>
+</body>
+</html>
