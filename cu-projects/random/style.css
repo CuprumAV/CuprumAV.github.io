@@ -1,0 +1,55 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+
+}
+input{
+    border-radius: 5px;
+    background-color:rgb(235, 222, 213);
+}
+.random_block{
+    background-color: silver;
+    max-width: 50%;
+    margin: 10px auto;
+    border-radius: 10px;
+}
+.random_text{
+    background-color: orange;
+    padding: 10px;
+    font-weight: 900;
+}
+.min{
+    display: inline;
+}
+.min_input{
+    display: inline-flex
+}
+.max{
+    display: inline;
+}
+.numbers{
+    margin: 4px;
+    display: block;
+}
+.generate{
+    border-radius: 5px;
+    border: 1px solid black;
+    margin: 4px;
+    background-color: orange;
+}
+.output{
+    background-color: papayawhip;
+    padding: 2px;
+}
+.result{
+    padding-bottom: 5px;
+
+}
+@media(max-width: 420px){
+    .random_block{
+        background-color: silver;
+        max-width: 80%;
+        margin: 10px auto;
+    }
+}

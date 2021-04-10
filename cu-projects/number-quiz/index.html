@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Число Казіно</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <center>
+        <div class="game_menu">
+            <div class="score">Score: <span class="scoreN">100</span></div>
+            <button onclick="game()" class="buttonGame">Почати гру</button>
+            <div class="buttons">
+                <button class="1" onclick="numberScore(1)">1</button>
+                <button class="2" onclick="numberScore(2)">2</button>
+                <button class="3" onclick="numberScore(3)">3</button>
+                <button class="4" onclick="numberScore(4)">4</button>
+                <button class="5" onclick="numberScore(5)">5</button>
+                <button class="6" onclick="numberScore(6)">6</button>
+                <button class="7" onclick="numberScore(7)">7</button>
+                <button class="8" onclick="numberScore(8)">8</button>
+                <button class="9" onclick="numberScore(9)">9</button>
+                <button class="10" onclick="numberScore(10)">10</button>
+                <button class="11" onclick="numberScore(11)">11</button>
+                <button class="12" onclick="numberScore(12)">12</button>
+                <button class="13" onclick="numberScore(13)">13</button>
+                <button class="14" onclick="numberScore(14)">14</button>
+                <button class="15" onclick="numberScore(15)">15</button>
+                <button class="16" onclick="numberScore(16)">16</button>
+                <button class="17" onclick="numberScore(17)">17</button>
+                <button class="18" onclick="numberScore(18)">18</button>
+                <button class="19" onclick="numberScore(19)">19</button>
+                <button class="20" onclick="numberScore(20)">20</button>
+            </div>
+            <!-- <div>Числа які ви використовували: <span class="number_vikor"></span></div> -->
+            <div>Загадане число: <span class="number_random"></span></div>
+        </div>
+        <div class="game_pravila">
+            На початку гри у вас є 100 очків. Задача гри заключається в тому, щоб відгадати число від 1 до 20, за кожну неправильну спробу у вас знімається 10 очків. Ви виграєте якщо вгадаєте правильне число, або програєте якщо буде 0 очків.
+        </div>
+    </center>
+</body>
+</html>
