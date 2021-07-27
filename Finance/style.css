@@ -6,7 +6,7 @@ html, body{height: 100%;}
 .wrapper{
     width: 100%;
     color: white;
-    min-height: 95%;
+    min-height: 100%;
     position: relative;
     display: block;
     background-color: black;
@@ -44,20 +44,26 @@ form{
     color: white;
 }
 .buts{
-    display: block;
+    display: inline-block;
     background-color: blanchedalmond;
-    padding:5px;
+    width: 20px;
+    height: 20px;
 }
-.buts:active{
-    background-color: gray;
+.privacy{
+    display: block;
+    margin: 30px;
 }
-
+.agree{
+    margin-top: -15px;
+    padding: 0;
+}
 /*Footer*/
 footer{
     width: 100%;
     position: absolute;
     border-top: 1px solid silver;
     background-color: black;
+    margin-top: -25px;
 }
 footer p{
     color: white;

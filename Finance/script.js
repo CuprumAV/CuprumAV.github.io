@@ -1,13 +1,24 @@
+/* */
+var sertificate = document.querySelector('.text-reg');
+var button = document.querySelector(".buts");
+var regInput = document.getElementById('reg');
 
-window.onload = disabled;
+button.onclick = disabled;
 function disabled(){
-    var but = document.querySelector('.text-reg');
-    but.disabled = true;
+    if(sertificate.disabled = true){
+        sertificate.disabled = false;
+        button.src = 'img/GAlochka.gif';
+    }
+    /*Не працює
+    else if(sertificate.disabled = false){
+        sertificate.disabled = true;
+        button.src = 'img/inst_logo.png';
+    }*/
 
-    var head = document.querySelector(".buts");
-    head.onclick = disabledF;
-    function disabledF(){
-    var but = document.querySelector('.text-reg');
-    but.disabled = false;
+}
+sertificate.onclick = serInput;
+function serInput(){
+    if(!reg){
+        alert('HEH');
     }
 }
