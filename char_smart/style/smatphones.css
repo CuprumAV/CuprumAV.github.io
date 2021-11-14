@@ -1,0 +1,31 @@
+.page{
+    width: 78%;
+    margin-left: 22%;
+    position: absolute;
+    display: block;
+    text-align: center;
+}
+.page div{
+    margin:10px;
+    font-weight: 500;
+    font-size: 20px;
+}
+table{
+    border: 1px solid black;
+    margin: 0;
+    font-size: 12px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+th{
+    border: 1px solid black;
+    color: #799e54;
+}
+table tr{
+    border: 1px solid black;
+    margin: 0;
+}
+table tr td{
+    border: 1px solid black;
+    margin: 0;
+}

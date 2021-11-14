@@ -1,0 +1,15 @@
+.page{
+    width: 78%;
+    margin-left: 22%;
+    position: absolute;
+}
+.page div{
+    margin:10px;
+    font-weight: 500;
+    font-size: 20px;
+}
+img{
+    margin: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
