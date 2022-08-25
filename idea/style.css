@@ -29,6 +29,7 @@ main{
 }
 main span{
     font-size: 30px;
+    font-weight: 450;
 }
 footer{
     margin: 0;
