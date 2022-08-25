@@ -1,0 +1,54 @@
+html,body{
+    background-color: #dfd8a2;
+    color: black;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+#wrapper{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+header{
+    position: absolute;
+    height: 50px;
+    font-size: 35px;
+    width: 100%;
+    color: white;
+    background-color: #6d874c;
+    display: block;
+}
+header div{
+    margin: 7px 40px;
+}
+main{
+    margin: 40px;
+    flex: 1 1 auto;
+}
+main span{
+    font-size: 30px;
+}
+footer{
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid black;
+    text-align: right;
+}
+footer p{
+    margin-right: 20px;
+    color: black;
+}
+@media screen and (max-width: 450px) {
+    main{
+        margin:40px 20px;
+    }
+    main span{
+        font-size: 20px;
+        
+    }
+    html, body{
+        font-size: 16px;
+    }
+}
