@@ -75,7 +75,7 @@ html, body{
 .footer_text{
     margin: 10px 20px;
 }
-@media (max-width:430px) {
+@media (max-width:450px) {
     .header_theme{
         float: left;
         margin: 0 5px;
