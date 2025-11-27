@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>З Днем Народження, Марина! 🎉</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- Scene 1: Typing Text -->
+<div id="scene1" class="scene active">
+    <div class="stars"></div>
+    <div class="typing-container">
+        <h1 id="typingText" class="typing-text"></h1>
+        <button id="nextBtn" class="next-btn hidden">Далі</button>
+    </div>
+</div>
+
+<!-- Scene 2: 3D Celebration -->
+<div id="scene2" class="scene">
+    <canvas id="celebrationCanvas"></canvas>
+    <div id="blowCandlesInstruction" class="instruction hidden">
+        Натисни на свічки, щоб їх задмухати! 🕯️
+    </div>
+</div>
+
+<!-- Scene 3: Final Message -->
+<div id="scene3" class="scene">
+    <div class="final-message-container">
+        <h1 id="finalMessage" class="final-message"></h1>
+        <button id="galleryBtn" class="gallery-btn hidden">📸 Переглянути фотогалерею</button>
+        <div class="hearts-animation"></div>
+    </div>
+</div>
+
+<!-- Scene 4: Photo Gallery -->
+<div id="scene4" class="scene">
+    <div id="photoGallery" class="photo-gallery">
+        <button id="closeGallery" class="close-gallery">✕</button>
+        <div id="gallery3D"></div>
+        <div class="gallery-controls">
+            <button id="prevPhoto" class="gallery-control-btn">← Попереднє</button>
+            <span id="photoCounter" class="photo-counter">1 / 5</span>
+            <button id="nextPhoto" class="gallery-control-btn">Наступне →</button>
+        </div>
+        <div id="mobileGalleryHint" class="mobile-hint hidden">
+            👆 Свайпай пальцем, щоб переглядати фото!
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

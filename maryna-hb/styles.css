@@ -1,0 +1,475 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    overflow: hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.scene {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease-in-out;
+}
+
+.scene.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Scene 1: Typing Text */
+#scene1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0a0e27;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Програмістський стиль - Matrix/Terminal effect */
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+/* Додаємо матричний ефект на фоні */
+.stars::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(transparent 0%, rgba(0, 255, 0, 0.05) 50%, transparent 100%),
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 255, 0, 0.03) 2px, rgba(0, 255, 0, 0.03) 4px);
+    animation: matrix-scan 3s linear infinite;
+}
+
+@keyframes matrix-scan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+/* Код що "падає" як в матриці */
+.stars::after {
+    content: '01010011010001110100100001010010010101000100111001000001';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: rgba(0, 255, 0, 0.1);
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 20px;
+    word-wrap: break-word;
+    animation: falling-code 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes falling-code {
+    0% { transform: translateY(-100%); opacity: 0; }
+    10% { opacity: 0.3; }
+    90% { opacity: 0.3; }
+    100% { transform: translateY(100vh); opacity: 0; }
+}
+
+.typing-container {
+    text-align: center;
+    padding: 40px;
+    max-width: 900px;
+    z-index: 10;
+    background: rgba(10, 14, 39, 0.8);
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+    box-shadow:
+        0 0 20px rgba(0, 255, 0, 0.3),
+        inset 0 0 20px rgba(0, 255, 0, 0.1);
+    position: relative;
+}
+
+/* Термінальний промпт */
+.typing-container::before {
+    content: '> ';
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 1.5rem;
+    animation: blink-cursor 1s infinite;
+}
+
+@keyframes blink-cursor {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+.typing-text {
+    color: #00ff00;
+    font-size: 2rem;
+    line-height: 1.6;
+    font-family: 'Courier New', monospace;
+    text-shadow:
+        0 0 10px rgba(0, 255, 0, 0.8),
+        0 0 20px rgba(0, 255, 0, 0.5),
+        0 0 30px rgba(0, 255, 0, 0.3);
+    animation: terminal-glow 2s ease-in-out infinite alternate;
+    text-align: left;
+    padding-left: 40px;
+}
+
+/* Курсор що блимає */
+.typing-text::after {
+    content: '▋';
+    animation: blink-cursor 0.7s infinite;
+    margin-left: 2px;
+}
+
+@keyframes terminal-glow {
+    from { text-shadow: 0 0 10px rgba(0, 255, 0, 0.5), 0 0 20px rgba(0, 255, 0, 0.3); }
+    to { text-shadow: 0 0 20px rgba(0, 255, 0, 1), 0 0 30px rgba(0, 255, 0, 0.6); }
+}
+
+.next-btn {
+    margin-top: 40px;
+    padding: 15px 40px;
+    font-size: 1.3rem;
+    font-family: 'Courier New', monospace;
+    color: #0a0e27;
+    background: #00ff00;
+    border: 2px solid #00ff00;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow:
+        0 0 10px rgba(0, 255, 0, 0.5),
+        0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+}
+
+.next-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.next-btn:hover::before {
+    left: 100%;
+}
+
+.next-btn:hover {
+    transform: scale(1.05);
+    box-shadow:
+        0 0 20px rgba(0, 255, 0, 0.8),
+        0 10px 25px rgba(0, 0, 0, 0.4);
+    background: #00ff00;
+}
+
+.next-btn:active {
+    transform: scale(0.98);
+}
+
+/* Scene 2: 3D Canvas */
+#celebrationCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.instruction {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    animation: pulse 2s infinite;
+    z-index: 100;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.05); }
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+    15% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    85% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+}
+
+/* Mobile touch hints */
+.mobile-hint {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 1.1rem;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px 30px;
+    border-radius: 25px;
+    z-index: 150;
+    animation: pulse 2s infinite;
+    pointer-events: none;
+    text-align: center;
+    max-width: 90%;
+}
+
+/* Scene 3: Final Message */
+#scene3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.final-message-container {
+    text-align: center;
+    padding: 40px;
+    position: relative;
+    z-index: 10;
+}
+
+.final-message {
+    color: white;
+    font-size: 3rem;
+    line-height: 1.6;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+    animation: fadeInScale 2s ease-out;
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.hearts-animation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    font-size: 3rem;
+    animation: floatUp 4s ease-in infinite;
+    opacity: 0;
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 0;
+        transform: translateY(0) rotate(0deg);
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100vh) rotate(360deg);
+    }
+}
+
+/* Gallery Button */
+.gallery-btn {
+    margin-top: 40px;
+    padding: 20px 50px;
+    font-size: 1.5rem;
+    color: white;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: 3px solid white;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    font-weight: bold;
+    animation: bounceIn 1s ease-out;
+}
+
+@keyframes bounceIn {
+    0% { opacity: 0; transform: scale(0); }
+    50% { transform: scale(1.1); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.gallery-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.gallery-btn:active {
+    transform: scale(0.95);
+}
+
+/* Scene 4: Photo Gallery */
+#scene4 {
+    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+}
+
+.photo-gallery {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#gallery3D {
+    width: 100%;
+    height: 100%;
+}
+
+.close-gallery {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+    color: white;
+    background: rgba(255, 0, 0, 0.7);
+    border: 2px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 200;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-gallery:hover {
+    background: rgba(255, 0, 0, 0.9);
+    transform: rotate(90deg) scale(1.1);
+}
+
+.gallery-controls {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    z-index: 150;
+}
+
+.gallery-control-btn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid white;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.gallery-control-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.gallery-control-btn:active {
+    transform: scale(0.95);
+}
+
+.photo-counter {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    min-width: 80px;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .typing-text {
+        font-size: 1.5rem;
+    }
+
+    .final-message {
+        font-size: 2rem;
+    }
+
+    .next-btn {
+        font-size: 1.2rem;
+        padding: 15px 35px;
+    }
+
+    .instruction {
+        font-size: 1.2rem;
+        padding: 15px 25px;
+    }
+
+    .gallery-btn {
+        font-size: 1.2rem;
+        padding: 15px 35px;
+    }
+
+    .close-gallery {
+        width: 50px;
+        height: 50px;
+        top: 20px;
+        right: 20px;
+        font-size: 1.5rem;
+    }
+
+    .gallery-controls {
+        bottom: 100px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .gallery-control-btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+
+    .photo-counter {
+        font-size: 1.2rem;
+    }
+}
